@@ -6,7 +6,7 @@
 
 ❌ **Опасно:**
 ```python
-TELEGRAM_TOKEN = '8781984176:AAHKR6VHGXrVeRcfdp2rshGyOUWPpl6k6LI'
+Удалён скомпрометированный токен
 TELEGRAM_CHAT_ID = '520421965'
 ```
 
