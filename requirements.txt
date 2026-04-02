@@ -3,5 +3,4 @@ ccxt>=4.5.34
 python-dotenv==1.2.1
 pandas
 numpy
-pandas-ta
 python-telegram-bot==22.6
