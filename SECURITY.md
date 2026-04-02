@@ -62,7 +62,11 @@ pip install python-dotenv requests ccxt
 В папке `CryptoAgents/` создайте файл `.env`:
 
 ```
+<<<<<<< HEAD
 TELEGRAM_TOKEN=your_token_here
+=======
+TELEGRAM_TOKEN=ваш_токен_здесь
+>>>>>>> cb98bcd (далён скомпрометированный токен)
 TELEGRAM_CHAT_ID=520421965
 EXCHANGE=mexc
 SYMBOL=ETH/USDT
