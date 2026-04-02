@@ -26,5 +26,7 @@ jobs:
     - name: Check syntax
       run: |
         python -m py_compile agent_001/agent_base_v1.py
-        python -m py_compile telegram_notifier.py
-        python -m py_compile config.py
+        python -m py_compile agent_001/telegram_notifier.py
+        python -m py_compile agent_001/config.py
+        # проверяем все .py в проекте, кроме виртуальных окружений
+        find . -name '*.py' -not -path './.venv/*' -not -path './venv/*' -print0 | xargs -0 python -m py_compile
