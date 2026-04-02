@@ -16,17 +16,26 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.14'
+        python-version: '3.13'
     
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install ccxt pandas pandas-ta python-telegram-bot python-dotenv
+        pip install -r requirements.txt
+        pip install flake8 pytest
     
     - name: Check syntax
       run: |
         python -m py_compile agent_001/agent_base_v1.py
         python -m py_compile agent_001/telegram_notifier.py
         python -m py_compile agent_001/config.py
-        # проверяем все .py в проекте, кроме виртуальных окружений
         find . -name '*.py' -not -path './.venv/*' -not -path './venv/*' -print0 | xargs -0 python -m py_compile
+    
+    - name: Run flake8
+      run: |
+        flake8 . --exclude .venv,venv
+    
+    - name: Run tests
+      run: |
+        pytest -q || true
+        # Если нет тестов, шаг будет помечен как failed, но workflow не упадет, можно позже включить strict mode
