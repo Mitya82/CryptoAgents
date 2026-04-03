@@ -1,0 +1,2 @@
+timestamp,symbol,signal_type,strength,price,bb_lower,bb_upper,stoch_k
+2026-04-03T14:36:04.201494,BTC/USDT,short,0.77,67193.41,66464.32,67091.82,90.90
