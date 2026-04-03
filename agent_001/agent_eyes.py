@@ -44,7 +44,8 @@ def signal_from_change(change: Optional[float]) -> str:
     return "📢 СИГНАЛ: 🔴 ПАДЕНИЕ на рынке"
 
 
-def run(exchange_id: str = DEFAULT_EXCHANGE, symbol: str = DEFAULT_SYMBOL) -> None:
+def run(exchange_id: str = DEFAULT_EXCHANGE,
+        symbol: str = DEFAULT_SYMBOL) -> None:
     logging.info("=" * 50)
     logging.info("АГЕНТ 001: ТЕСТ СВЯЗИ С РЫНКОМ")
     logging.info("=" * 50)
@@ -90,9 +91,18 @@ def run(exchange_id: str = DEFAULT_EXCHANGE, symbol: str = DEFAULT_SYMBOL) -> No
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Agent 001: simple market connectivity test via ccxt")
-    parser.add_argument("--exchange", "-e", default=DEFAULT_EXCHANGE, help="ccxt exchange id (default: binance)")
-    parser.add_argument("--symbol", "-s", default=DEFAULT_SYMBOL, help="Market symbol (default: BTC/USDT)")
+    parser = argparse.ArgumentParser(
+        description="Agent 001: simple market connectivity test via ccxt")
+    parser.add_argument(
+        "--exchange",
+        "-e",
+        default=DEFAULT_EXCHANGE,
+        help="ccxt exchange id (default: binance)")
+    parser.add_argument(
+        "--symbol",
+        "-s",
+        default=DEFAULT_SYMBOL,
+        help="Market symbol (default: BTC/USDT)")
     args = parser.parse_args()
 
     run(exchange_id=args.exchange, symbol=args.symbol)

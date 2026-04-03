@@ -23,7 +23,8 @@ def create_exchange(exchange_id: str = "mexc") -> Any:
 def fetch_ticker(exchange: Any, symbol: str) -> Dict[str, Any]:
     """Загрузить рынки (safely) и получить тикер для символа."""
     try:
-        # load_markets помогает избежать ленивых загрузок в некоторых реализациях
+        # load_markets помогает избежать ленивых загрузок в некоторых
+        # реализациях
         exchange.load_markets()
     except Exception:
         # не критично — некоторые адаптеры не требуют загрузки рынков
@@ -118,9 +119,15 @@ def run(exchange_id: str = "mexc", symbol: str = "BTC/USDT") -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Agent 001: fetch ticker from exchange via ccxt")
-    parser.add_argument("--exchange", "-e", default="mexc", help="ccxt exchange id (default: mexc)")
-    parser.add_argument("--symbol", "-s", default="BTC/USDT", help="Market symbol (default: BTC/USDT)")
+    parser = argparse.ArgumentParser(
+        description="Agent 001: fetch ticker from exchange via ccxt")
+    parser.add_argument("--exchange", "-e", default="mexc",
+                        help="ccxt exchange id (default: mexc)")
+    parser.add_argument(
+        "--symbol",
+        "-s",
+        default="BTC/USDT",
+        help="Market symbol (default: BTC/USDT)")
     args = parser.parse_args()
 
     run(exchange_id=args.exchange, symbol=args.symbol)

@@ -6,6 +6,7 @@ from urllib3.exceptions import InsecureRequestWarning
 # Отключаем предупреждения о SSL
 urllib3.disable_warnings(InsecureRequestWarning)
 
+
 def get_btc_price():
     # MEXC API для получения цены BTC
     url = 'https://api.mexc.com/api/v3/ticker/price?symbol=BTCUSDT'

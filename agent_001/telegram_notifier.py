@@ -1,6 +1,7 @@
 # filepath: c:\Code\CryptoAgents\agent_001\telegram_notifier.py
 import requests
 
+
 class TelegramNotifier:
     def __init__(self, token: str, chat_id: str):
         self.url = f'https://api.telegram.org/bot{token}/sendMessage'
@@ -9,7 +10,8 @@ class TelegramNotifier:
     def send_sync(self, message: str) -> None:
         try:
             resp = requests.post(self.url,
-                                 data={'chat_id': self.chat_id, 'text': message},
+                                 data={
+                                     'chat_id': self.chat_id, 'text': message},
                                  timeout=10)
             resp.raise_for_status()
             print(f"📨 Уведомление отправлено: {message}")
